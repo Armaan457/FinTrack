@@ -1,0 +1,32 @@
+.headings
+{
+    color: yellow;
+    font-family: Copperplate, Papyrus, fantasy;
+    text-decoration: underline;
+    font-weight: bold;
+    font-size: 50px;
+
+}
+
+.bg
+{
+    background-image: url("bg.jpeg");
+}
+
+.ft
+{
+
+    text-decoration: underline;
+    color: darkmagenta;
+}
+
+footer
+{
+  position: fixed;
+  margin-top: 100px;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+

@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Give/Take
+{% endblock %}
+
+{% block main %}
+<header><h1 class="headings">Give/Take</h1></header>
+<br>
+<form action="/give_take" method="post">
+    <div class="mb-3">
+        <select name="choice" id="choice">
+                <option value="" disabled selected hidden>Choice</option>
+                <option>{{ "Give" }}</option>
+                <option>{{ "Take" }}</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="username" placeholder="Username" type="text">
+    </div>
+    <div class="mb-3">
+        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="cash" placeholder="Cash" type="number">
+    </div>
+    <button class="btn btn-primary" type="submit">Enter</button>
+<br>
+<br>
+    <table class="table table-striped">
+        <tr style="font-weight: bold; text-decoration: underline;">
+            <td>User</td>
+            <td>Amount</td>
+            <td>Give/Take</td>
+        </tr>
+        {% for i in his %}
+        {% if i["total"] != 0 %}
+            <tr>
+                <td>{{ i["username"] }} </td>
+                <td>{{ i["total"] | abs}}</td>
+                {% if i["total"] > 0%}
+                    <td>Give</td>
+                {% else %}
+                    <td>Take</td>
+                {% endif %}
+            </tr>
+        {% else %}
+            <td></td>
+            <td></td>
+            <td></td>
+        {% endif %}
+        {% endfor %}
+    </table>
+</form>
+
+{% endblock %}

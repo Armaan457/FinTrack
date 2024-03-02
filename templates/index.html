@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+<header><h1 class="headings">Index</h1></header>
+<br>
+<table class="table table-striped">
+    <tr style="font-weight: bold; text-decoration: underline;">
+        <td>Amount</td>
+        <td>Withdraw/Deposit</td>
+        <td>Date</td>
+        <td>Note</td>
+    </tr>
+    {% for tran in trans %}
+    <tr>
+        <td>{{ tran["cash"] }} </td>
+        <td>{{ tran["type"] }}</td>
+        <td>{{ tran["time"] }}</td>
+        <td>{{ tran["note"] }}</td>
+    </tr>
+    {% endfor %}
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td style="font-weight: bold;">Total</td>
+        <td></td>
+        <td></td>
+        <td style="font-weight: bold;">{{ total }}</td>
+    </tr>
+
+</table>
+<br>
+<br>
+{% endblock %}
