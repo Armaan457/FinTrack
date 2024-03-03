@@ -181,7 +181,6 @@ def give_take():
 
     else:
         his = db.execute("select username, sum(cash) as total, user_id from give_take where user_id = ? group by username", user)
-        print(his)
         return render_template("give_take.html", his=his)
 
 @app.route("/change_password", methods=["GET", "POST"])
