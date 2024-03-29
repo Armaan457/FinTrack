@@ -119,6 +119,7 @@ def withdraw():
         return render_template("withdraw.html")
 
 @app.route("/deposit", methods=["GET", "POST"])
+@login_required
 def deposit():
     user = session["user_id"]
     if request.method == "POST":
